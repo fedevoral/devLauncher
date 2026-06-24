@@ -142,6 +142,18 @@
         .user-input::placeholder { color: #555; }
         .user-input:focus, .select-wrapper select:focus { outline: 2px solid #f9b837; }
 
+        /* Kategori başlıklarının (optgroup) stili */
+        .select-wrapper select optgroup {
+            background-color: #2c2c2c;
+            color: #f9b837;
+            font-weight: bold;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .select-wrapper select option {
+            background-color: #b5b5b5;
+            color: #222;
+        }
+
         .select-wrapper {
             position: relative;
             display: inline-block;
@@ -283,30 +295,71 @@
     <script>
         const { ipcRenderer, shell } = require('electron');
 
-        // Launcher yüklendiğinde backend'den sürümleri iste
         document.addEventListener('DOMContentLoaded', () => {
             ipcRenderer.send('get-versions');
         });
 
-        // Backend'den gelen listeyi select elementine yerleştir
-        ipcRenderer.on('versions-list', (event, versions) => {
+        ipcRenderer.on('versions-list', (event, data) => {
             const versionSelect = document.getElementById('version');
-            versionSelect.innerHTML = ''; // "Loading..." yazısını temizle
+            versionSelect.innerHTML = ''; 
 
-            // Özel Fabric Profilini en tepeye ekle ve seçili yap
-            const fabricOption = document.createElement('option');
-            fabricOption.value = 'fabric-loader-0.19.3-1.21.1';
-            fabricOption.innerText = 'Fabric 1.21.1 (Performance Boost)';
-            fabricOption.selected = true;
-            versionSelect.appendChild(fabricOption);
+            const specialOptgroup = document.createElement('optgroup');
+            specialOptgroup.label = "✨ Special Profile";
+            
+            const fabricSpecial = document.createElement('option');
+            fabricSpecial.value = `fabric-loader-${data.fabricLoader}-1.21.1`;
+            fabricSpecial.innerText = 'Fabric 1.21.1 (Performance Boost)';
+            fabricSpecial.selected = true; 
+            specialOptgroup.appendChild(fabricSpecial);
+            versionSelect.appendChild(specialOptgroup);
 
-            // Geri kalan vanilla resmi sürümleri listele
-            versions.forEach(v => {
+            const vanillaOptgroup = document.createElement('optgroup');
+            vanillaOptgroup.label = "📦 Vanilla Releases";
+            data.vanilla.forEach(v => {
                 const option = document.createElement('option');
                 option.value = v;
                 option.innerText = `Vanilla ${v}`;
-                versionSelect.appendChild(option);
+                vanillaOptgroup.appendChild(option);
             });
+            versionSelect.appendChild(vanillaOptgroup);
+
+            const forgeOptgroup = document.createElement('optgroup');
+            forgeOptgroup.label = "🛠️ Forge Loader";
+            const popularForge = ['1.20.1', '1.19.2', '1.18.2', '1.16.5', '1.12.2'];
+            data.vanilla.forEach(v => {
+                if (popularForge.includes(v) || v.startsWith('1.21')) {
+                    const option = document.createElement('option');
+                    option.value = `forge-${v}`;
+                    option.innerText = `Forge ${v}`;
+                    forgeOptgroup.appendChild(option);
+                }
+            });
+            versionSelect.appendChild(forgeOptgroup);
+
+            const optifineOptgroup = document.createElement('optgroup');
+            optifineOptgroup.label = "🔍 Optifine Profiles";
+            const popularOptifine = ['1.21.1', '1.20.1', '1.19.2', '1.16.5', '1.8.9'];
+            data.vanilla.forEach(v => {
+                if (popularOptifine.includes(v)) {
+                    const option = document.createElement('option');
+                    option.value = `optifine-${v}`;
+                    option.innerText = `Optifine ${v}`;
+                    optifineOptgroup.appendChild(option);
+                }
+            });
+            versionSelect.appendChild(optifineOptgroup);
+
+            const fabricOptgroup = document.createElement('optgroup');
+            fabricOptgroup.label = "🧬 Fabric Loader";
+            data.vanilla.forEach(v => {
+                if (parseFloat(v.substring(2)) >= 14 || v.startsWith('1.21')) {
+                    const option = document.createElement('option');
+                    option.value = `fabric-loader-${data.fabricLoader}-${v}`;
+                    option.innerText = `Fabric ${v}`;
+                    fabricOptgroup.appendChild(option);
+                }
+            });
+            versionSelect.appendChild(fabricOptgroup);
         });
 
         function toggleSettings() {
@@ -319,9 +372,8 @@
         });
 
         document.getElementById('github-link').addEventListener('click', () => {
-            // Buraya kendi tam repo veya profil linkini girebilirsin
-            shell.openExternal('https://github.com/fedevoral'); 
-        });
+            shell.openExternal('https://github.com/fedevoral/devLauncher'); 
+        }); 
 
         document.getElementById('play-btn').addEventListener('click', function() {
             this.innerText = "DOWNLOADING... %0";
