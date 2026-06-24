@@ -1,0 +1,33 @@
+{
+  "name": "devlauncher",
+  "version": "1.0.0",
+  "description": "A Minecraft Launcher",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "dist": "electron-builder --win"
+  },
+  "build": {
+    "appId": "com.fedevoral.devlauncher",
+    "productName": "devLauncher",
+    "win": {
+      "target": "dir",
+      "icon": "assets/icons/icon.ico"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "minecraft-launcher-core": "^3.18.2"
+  },
+  "devDependencies": {
+    "electron": "^42.5.0",
+    "electron-builder": "^26.15.3"
+  }
+}
