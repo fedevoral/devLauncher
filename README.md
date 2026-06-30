@@ -2,14 +2,14 @@
 
 A minimal, high-performance, open-source Minecraft Launcher built with Electron and Node.js. 
 
-Designed for speed, simplicity, and flexibility. Features native support for the latest Minecraft Vanilla versions (including 1.21.8) and comes with a pre-configured **Fabric 1.21.1 Performance Boost** profile right out of the box.
+Designed for speed, simplicity, and flexibility. Features native support for the latest Minecraft Vanilla versions and comes with a pre-configured **Fabric 1.21.1 Performance Boost** profile right out of the box.
+It contains Vanilla, Fabric and Forge versions.
 
 ## ✨ Features
 
 - **Dynamic Versions:** Re-fetches all official Minecraft releases dynamically from Mojang's official API.
 - **Special Profile:(Fabric 1.21.1):** One-click optimization profile pre-loaded for high FPS and low memory usage.
 - **Memory and Java Management:** Fully configurable RAM allocating and native Java executable pathing via the built-in settings panel.
-- **Mods Shortcut:** Fast access to the local `.minecraft/mods` directory directly from the launcher interface.
 - **Clean UI:** Developed with a dark/minimalist theme using the sleek [Jetbrains Mono](https://www.jetbrains.com/lp/mono/) font.
 
 ## 🛠️ Built With
