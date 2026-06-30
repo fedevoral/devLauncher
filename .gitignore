@@ -12,6 +12,7 @@ out/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+installer.iss
 
 # IDEs and Editors
 .vscode/
