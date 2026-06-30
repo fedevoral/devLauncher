@@ -22,12 +22,23 @@ Designed for speed, simplicity, and flexibility. Features native support for the
 
 ### Prerequisites
 
-To clone and run this application, you'll need [Git](https://git-scm.com), [Java](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html) and [Node.js](https://nodejs.org/en/download/) installed on your computer.
+To clone and run this application, you'll need [Git](https://git-scm.com), [Java 21](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html) and [Node.js](https://nodejs.org/en/download/) installed on your computer.
 
 I will add a installer (.exe) soon.
 
 ### Installation
 
+If you want to install this program with a installer,
+
+1.
+
+If you want to run this program from source code:
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/fedevoral/devlauncher.git](https://github.com/fedevoral/devlauncher.git)
+   git clone https://github.com/fedevoral/devlauncher.git
+   ```
+2. Open a terminal in folder, then type
+   ```bash
+   npm install
+   npm start
+   ```
