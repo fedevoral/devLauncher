@@ -22,7 +22,9 @@ Designed for speed, simplicity, and flexibility. Features native support for the
 
 ### Prerequisites
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) installed on your computer.
+To clone and run this application, you'll need [Git](https://git-scm.com), [Java](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html) and [Node.js](https://nodejs.org/en/download/) installed on your computer.
+
+I will add a installer (.exe) soon.
 
 ### Installation
 
