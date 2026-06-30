@@ -10,7 +10,7 @@ Designed for speed, simplicity, and flexibility. Features native support for the
 - **Special Profile:(Fabric 1.21.1):** One-click optimization profile pre-loaded for high FPS and low memory usage.
 - **Memory and Java Management:** Fully configurable RAM allocating and native Java executable pathing via the built-in settings panel.
 - **Mods Shortcut:** Fast access to the local `.minecraft/mods` directory directly from the launcher interface.
-- **Clean UI:** Developed with a dark/minimalist theme using the sleek `JetBrains Mono` font.
+- **Clean UI:** Developed with a dark/minimalist theme using the sleek [Jetbrains Mono](https://www.jetbrains.com/lp/mono/) font.
 
 ## 🛠️ Built With
 
