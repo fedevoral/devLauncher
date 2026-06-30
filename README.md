@@ -1,4 +1,4 @@
-# devLauncher 🚀
+# [devLauncher 🚀](https://fedevoral.netlify.app/devlauncher/)
 
 A minimal, high-performance, open-source Minecraft Launcher built with Electron and Node.js. 
 
@@ -30,7 +30,8 @@ I will add a installer (.exe) soon.
 
 If you want to install this program with a installer,
 
-1.
+1. Visit [my website](https://fedevoral.netlify.app/)  and choose the version you need.
+   Note : If you are on Linux, you can install from the source code.
 
 If you want to run this program from source code:
 1. Clone the repository:
